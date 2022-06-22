@@ -1,12 +1,30 @@
-<div class="row">
-    <h1>Listado de Clientes</h1>
-</div>
-
-<div class="row">
-    <table border="1">
-        <tr><td>Id</td><td>Nombre</td><td>Apellidos</td><td>Correo</td><td>Direccion</td></tr>
-        {% for cli in clientes %}
-        <tr><td>{{cli.idCliente}}</td><td>{{cli.nombre}}</td><td>{{cli.apellidos}}</td><td>{{cli.correo}}</td><td>{{cli.direccion}}</td></tr>
-        {% endfor %}
-    </table>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Clientes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>   
+   
+</head>
+<body>
+    <div class="container-fluid">
+        
+    <div class="row">
+        <h1>Listado de Clientes</h1>
+    </div>
+    
+    <div class="row">
+        <table border="1">
+            <tr><td>Id</td><td>Nombre</td><td>Apellidos</td><td>Correo</td><td>Direccion</td></tr>
+            {% for cli in clientes %}
+            <tr><td>{{cli.id_cliente}}</td><td>{{cli.nombre}}</td><td>{{cli.apellidos}}</td><td>{{cli.correo}}</td><td>{{cli.direccion}}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+</body>

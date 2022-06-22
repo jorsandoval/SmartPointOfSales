@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoyo Prueba 2</title>
+    <title>Formulario Cliente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -19,13 +19,7 @@
                 <br/>
                 {% csrf_token  %}
                 <div class="form-group">
-                    {{ form.as_p }}
-                    <table border =1>
-                        <tr><td>Id de Cliente</td><td>Nombre</td><td>Apellido</td><td>Correo Electrónico</td><td>Dirección</td></tr>
-                        {% for cl in clietes %}
-                        <tr><td>{{cl.id_cliente}}</td><td>{{cl.nombre}}</td><td>{{cl.apellidos}}</td><td>{{cl.correo}}</td><td>{{cl.direccion}}</td></tr>
-                        {% endfor %}
-                    </table>
+                    {{ form.as_table }}
                 </div>
                 <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
                 <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
