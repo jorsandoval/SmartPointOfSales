@@ -11,7 +11,7 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=200, verbose_name='Dirección del cliente')
     
     def __str__(self):
-        return self.id_cliente
+        return self.nombre
 
 # Modelo para MedioPago
 class MedioPago(models.Model):
@@ -19,7 +19,7 @@ class MedioPago(models.Model):
     nombre = models.CharField(max_length=25, null=False, verbose_name='Nombre del medio de pago')
 
     def __str__(self):
-        return self.id_medio_pago
+        return self.nombre
 
 # Modelo para Producto
 class Producto(models.Model):
@@ -29,7 +29,7 @@ class Producto(models.Model):
     precio = models.IntegerField(null=False, verbose_name='Precio del producto')
 
     def __str__(self):
-        return self.id_producto
+        return self.nombre
 
 #Modelo para venta
 class Venta(models.Model):
@@ -40,8 +40,8 @@ class Venta(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name='Identificador del cliente')
 
     def __str__(self):
-        return self.id_venta
-
+        return str(self.id_venta)+' '+str(self.monto)
+        
 # Modelo Detalle Venta
 class DetalleVenta(models.Model):
     id_detalle_venta = models.IntegerField(primary_key=True, verbose_name='Identificador del detalle de venta')
@@ -49,7 +49,7 @@ class DetalleVenta(models.Model):
     venta = models.ForeignKey(Venta, on_delete=models.CASCADE, verbose_name='Identificador de la venta')
 
     def __str__(self):
-        return self.id_detalle_venta
+        return str(self.id_detalle_venta)+' '+str(self.producto)+' '+str(self.venta)
 
 
 

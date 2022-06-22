@@ -20,6 +20,12 @@
                 {% csrf_token  %}
                 <div class="form-group">
                     {{ form.as_p }}
+                    <table border =1>
+                        <tr><td>Id de Cliente</td><td>Nombre</td><td>Apellido</td><td>Correo Electrónico</td><td>Dirección</td></tr>
+                        {% for cl in clietes %}
+                        <tr><td>{{cl.id_cliente}}</td><td>{{cl.nombre}}</td><td>{{cl.apellidos}}</td><td>{{cl.correo}}</td><td>{{cl.direccion}}</td></tr>
+                        {% endfor %}
+                    </table>
                 </div>
                 <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
                 <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
