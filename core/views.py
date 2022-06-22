@@ -8,4 +8,4 @@ def home(request):
     datos = {
         'clientes': clientes
     }
-    return render(request, 'core/template/form_cliente',datos)
+    return render(request, 'templates/form_cliente.html',datos)
