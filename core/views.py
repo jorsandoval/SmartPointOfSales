@@ -5,6 +5,9 @@ from .forms import ClienteForm, VentaForm, ProductoForm, DetalleVentaForm
 # Create your views here.
 
 def home(request):
+    return render(request, 'core/home.html')
+
+def home_cliente(request):
     clientes = Cliente.objects.all()
     datos = {
         'clientes': clientes
