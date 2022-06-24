@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 # modelo para cliente
 class Cliente(models.Model):
-    id_cliente = models.IntegerField(primary_key=True, verbose_name='Id de cliente')
+    id_cliente = models.AutoField(primary_key=True, verbose_name='Id de cliente')
     nombre = models.CharField(max_length=100, null=False, verbose_name='Nombre del cliente')
     apellidos = models.CharField(max_length=150, null=False, verbose_name='Apellido del cliente')
     correo = models.CharField(max_length=200, null=False, verbose_name='Correo del cliente')
@@ -15,7 +15,7 @@ class Cliente(models.Model):
 
 # Modelo para MedioPago
 class MedioPago(models.Model):
-    id_medio_pago = models.IntegerField(primary_key=True, verbose_name='Identificador del medio de pago')
+    id_medio_pago = models.AutoField(primary_key=True, verbose_name='Identificador del medio de pago')
     nombre = models.CharField(max_length=25, null=False, verbose_name='Nombre del medio de pago')
 
     def __str__(self):
@@ -23,7 +23,7 @@ class MedioPago(models.Model):
 
 # Modelo para Producto
 class Producto(models.Model):
-    id_producto = models.IntegerField(primary_key=True, verbose_name='Identificador del producto')
+    id_producto = models.AutoField(primary_key=True, verbose_name='Identificador del producto')
     nombre = models.CharField(max_length=100, null=False, verbose_name='Nombre del producto')
     descripcion = models.CharField(max_length=250, verbose_name='Descripcion del producto')
     precio = models.IntegerField(null=False, verbose_name='Precio del producto')
@@ -33,7 +33,7 @@ class Producto(models.Model):
 
 #Modelo para venta
 class Venta(models.Model):
-    id_venta = models.IntegerField(primary_key=True, verbose_name='Identificador de la venta')
+    id_venta = models.AutoField(primary_key=True, verbose_name='Identificador de la venta')
     monto = models.IntegerField(null=False, verbose_name='Monto Total')
     medioPago = models.ForeignKey(MedioPago, on_delete=models.CASCADE, verbose_name='Medio de pago')
     fecha = models.CharField(null=False, max_length=10, verbose_name='Fecha de la venta')
@@ -44,7 +44,7 @@ class Venta(models.Model):
         
 # Modelo Detalle Venta
 class DetalleVenta(models.Model):
-    id_detalle_venta = models.IntegerField(primary_key=True, verbose_name='Identificador del detalle de venta')
+    id_detalle_venta = models.AutoField(primary_key=True, verbose_name='Identificador del detalle de venta')
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE, verbose_name='Identificador del producto')
     venta = models.ForeignKey(Venta, on_delete=models.CASCADE, verbose_name='Identificador de la venta')
 
