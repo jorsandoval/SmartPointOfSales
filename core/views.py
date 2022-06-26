@@ -89,7 +89,7 @@ def form_detalle_venta(request):
             datos['mensaje'] = "Detalle de venta registrado correctamente"
     return render(request, 'core/form_detalle_venta.html',datos)  
 
-def form_mediopago(request):
+def form_medio_pago(request):
     datos = {
         'form': MedioPagoForm()
     }
@@ -125,6 +125,18 @@ def form_mod_producto(request,id_producto):
             formulario.save()
             datos['mensaje']= "Producto modificado correctamente"
     return render(request, 'core/form_mod_producto.html', datos)
+
+def form_mod_venta(request,id_venta):
+    venta = Venta.objects.get(id_venta=id_venta)
+    datos = {
+        'form': VentaForm(instance=venta)
+    }
+    if request.method == 'POST':
+        formulario = VentaForm(data=request.POST, instance=venta)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Venta modificada correctamente"
+    return render(request, 'core/form_mod_venta.html',datos)
 
 def form_mod_medio_pago(request,id_medio_pago):
     medio_pago = MedioPago.objects.get(id_medio_pago=id_medio_pago)

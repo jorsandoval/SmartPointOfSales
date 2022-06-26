@@ -39,9 +39,9 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex justify-content-between">
             <h1>Listado de Ventas</h1>
-            <br>
+            <a href="{% url 'form_venta' %}" class="btn btn-primary" role="button">Nueva Venta</a>
         </div>
 
         <div class="row">
@@ -52,6 +52,7 @@
                         <th scope="col">Fecha</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Medio pago</th>
+                        <th scope="col">Detalle</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
@@ -61,7 +62,8 @@
                         <td>{{vta.monto}}</td>
                         <td>{{vta.fecha}}</td>
                         <td>{{vta.cliente}}</td>
-                        <td>{{vta.medio_pago}}</td>
+                        <td>{{vta.medioPago}}</td>
+                        <td><a href="{% url 'home_detalle_venta' %}">Detalle Venta</a></td>
                         <td><a href="{% url 'form_mod_venta' vta.id_venta %}">Modificar</a></td>
                     </tr>
                     {% endfor %}

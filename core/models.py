@@ -40,7 +40,7 @@ class Venta(models.Model):
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name='Identificador del cliente')
 
     def __str__(self):
-        return str(self.id_venta)+' '+str(self.monto)
+        return str(self.id_venta)
         
 # Modelo Detalle Venta
 class DetalleVenta(models.Model):
