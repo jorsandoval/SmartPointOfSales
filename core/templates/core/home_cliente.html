@@ -52,7 +52,7 @@
                         <th scope="col">Apellidos</th>
                         <th scope="col">Correo Electronico</th>
                         <th scope="col">Dirección</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col" colspan="3" class="text-center" >Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +62,8 @@
                         <td>{{cli.apellidos}}</td>
                         <td>{{cli.correo}}</td>
                         <td>{{cli.direccion}}</td>
-                        <td><a href="{% url 'form_mod_cliente' cli.id_cliente %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_mod_cliente' cli.id_cliente %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_del_cliente' cli.id_cliente %}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

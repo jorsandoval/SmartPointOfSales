@@ -50,14 +50,15 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col" colspan="3" class="text-center" >Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for mp in medio_pago %}
                     <tr>
                         <td>{{mp.nombre}}</td>
-                        <td><a href="{% url 'form_mod_medio_pago' mp.id_medio_pago %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_mod_medio_pago' mp.id_medio_pago %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_del_medio_pago' mp.id_medio_pago %}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

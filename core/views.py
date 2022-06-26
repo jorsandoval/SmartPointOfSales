@@ -1,7 +1,7 @@
 from http import client
 from operator import truediv
 from pickle import TRUE
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cliente, DetalleVenta, MedioPago, Producto, Venta
 from .forms import ClienteForm, VentaForm, ProductoForm, DetalleVentaForm, MedioPagoForm
 
@@ -151,3 +151,25 @@ def form_mod_medio_pago(request,id_medio_pago):
             formulario.save()
             datos['mensaje']="Medio de pago modificado correctamente"
     return render(request, 'core/form_mod_medio_pago.html',datos)
+
+#Formularios de Eliminación
+
+def form_del_cliente(request,id_cliente):
+    cliente = Cliente.objects.get(id_cliente=id_cliente)
+    cliente.delete()
+    return redirect(to="home_cliente")
+
+def form_del_producto(request,id_producto):
+    producto = Producto.objects.get(id_producto=id_producto)
+    producto.delete()
+    return redirect(to="home_producto")
+
+def form_del_venta(request,id_venta):
+    venta = Venta.objects.get(id_venta=id_venta)
+    venta.delete()
+    return redirect(to="home_venta")
+
+def form_del_medio_pago(request,id_medio_pago):
+    mediopago = MedioPago.objects.get(id_medio_pago=id_medio_pago)
+    mediopago.delete()
+    return redirect(to="home_medio_pago")

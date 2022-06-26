@@ -53,7 +53,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Precio</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col" colspan="3" class="text-center" >Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,7 +62,8 @@
                         <td>{{prd.nombre}}</td>
                         <td>{{prd.descripcion}}</td>
                         <td>{{prd.precio}}</td>
-                        <td><a href="{% url 'form_mod_producto' prd.id_producto %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_mod_producto' prd.id_producto %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_del_producto' prd.id_producto %}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

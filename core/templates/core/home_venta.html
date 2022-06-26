@@ -53,7 +53,7 @@
                         <th scope="col">Cliente</th>
                         <th scope="col">Medio pago</th>
                         <th scope="col">Detalle</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col" colspan="3" class="text-center" >Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,8 +63,9 @@
                         <td>{{vta.fecha}}</td>
                         <td>{{vta.cliente}}</td>
                         <td>{{vta.medioPago}}</td>
-                        <td><a href="{% url 'home_detalle_venta' vta.id_venta%}">Detalle Venta</a></td>
-                        <td><a href="{% url 'form_mod_venta' vta.id_venta %}">Modificar</a></td>
+                        <td ><a href="{% url 'home_detalle_venta' vta.id_venta%}">Detalle Venta</a></td>
+                        <td class="text-center"><a href="{% url 'form_mod_venta' vta.id_venta %}">Modificar</a></td>
+                        <td class="text-center"><a href="{% url 'form_del_venta' vta.id_venta %}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

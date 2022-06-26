@@ -1,3 +1,4 @@
+from pickle import TRUE
 from tkinter import CASCADE
 from django.db import models
 
@@ -15,7 +16,7 @@ class Cliente(models.Model):
 
 # Modelo para MedioPago
 class MedioPago(models.Model):
-    id_medio_pago = models.AutoField(primary_key=True, verbose_name='Identificador del medio de pago')
+    id_medio_pago = models.AutoField(primary_key=True,verbose_name='Identificador del medio de pago')
     nombre = models.CharField(max_length=25, null=False, verbose_name='Nombre del medio de pago')
 
     def __str__(self):
