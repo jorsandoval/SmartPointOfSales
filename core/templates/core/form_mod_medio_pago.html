@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Ventas</title>
+    <title>Mantenedor - Modificación Medios de Pago</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -40,33 +40,19 @@
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <h1>Listado de Ventas</h1>
-            <br>
-        </div>
-
-        <div class="row">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Monto</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Cliente</th>
-                        <th scope="col">Medio pago</th>
-                        <th scope="col">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for vta in ventas %}
-                    <tr>
-                        <td>{{vta.monto}}</td>
-                        <td>{{vta.fecha}}</td>
-                        <td>{{vta.cliente}}</td>
-                        <td>{{vta.medio_pago}}</td>
-                        <td><a href="{% url 'form_mod_venta' vta.id_venta %}">Modificar</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <form method="post" action="" id="formulario">
+                <h1>Mantenedor de Medios de pago</h1>
+                <br/>
+                {% csrf_token  %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+                <a href="{% url 'home_medio_pago' %}" class="btn btn-info" role="button">Volver</a>
+                <div id="error" class="alert alert-danger" roles="alert"></div>
+            </form>
+            <div id="error" class="alert alert-success" roles="alert">{{mensaje}}</div>
         </div>
     </div>
 </body>

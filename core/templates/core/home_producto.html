@@ -23,7 +23,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home_producto' %}">Productos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'home_producto' %}">Productos <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'home_cliente' %}">Clientes</a>
@@ -47,10 +48,12 @@
         <div class="row">
             <table class="table">
                 <thead class="thead-dark">
-                    <td scope="col">Nombre</td>
-                    <td scope="col">Descripción</td>
-                    <td scope="col">Precio</td>
-                    <th scope="col">Opciones</th>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {% for prd in productos %}
@@ -66,3 +69,4 @@
         </div>
     </div>
 </body>
+</html>

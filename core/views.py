@@ -125,3 +125,15 @@ def form_mod_producto(request,id_producto):
             formulario.save()
             datos['mensaje']= "Producto modificado correctamente"
     return render(request, 'core/form_mod_producto.html', datos)
+
+def form_mod_medio_pago(request,id_medio_pago):
+    medio_pago = MedioPago.objects.get(id_medio_pago=id_medio_pago)
+    datos = {
+        'form': MedioPagoForm(instance=medio_pago)
+    }
+    if request.method == 'POST':
+        formulario = MedioPagoForm(data=request.POST, instance=medio_pago)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']="Medio de pago modificado correctamente"
+    return render(request, 'core/form_mod_medio_pago.html',datos)
