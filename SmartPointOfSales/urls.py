@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home_cliente, form_cliente, form_venta,form_producto,home
+from core.views import home, home_cliente, form_cliente, form_venta,form_producto
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', home, name="home"),
-    path('home-cliente', home_cliente, name="home_cliente"),
-    path('form-cliente',form_cliente, name="form_cliente"),
-    path('form-venta',form_venta, name="form_venta"),
-    path('form-producto',form_producto, name="form_producto"),
+    path('admin/', admin.site.urls),
+    path('home_cliente', home_cliente, name="home_cliente"),
+    path('form_cliente',form_cliente, name="form_cliente"),
+    path('form_venta',form_venta, name="form_venta"),
+    path('form_producto',form_producto, name="form_producto"),
 ]

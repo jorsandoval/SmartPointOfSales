@@ -3,7 +3,7 @@ from .models import Cliente
 from .forms import ClienteForm, VentaForm, ProductoForm, DetalleVentaForm
 
 # Create your views here.
-
+#Home de los modelos
 def home(request):
     return render(request, 'core/home.html')
 
