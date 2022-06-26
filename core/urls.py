@@ -5,7 +5,7 @@ from .views import form_mod_producto, home, home_cliente, home_detalle_venta, ho
 urlpatterns = [
     path('', home, name="home"),
     path('home_cliente', home_cliente, name="home_cliente"),
-    path('home_detalle_venta', home_detalle_venta, name="home_detalle_venta"),
+    path('home_detalle_venta/<id_venta>', home_detalle_venta, name="home_detalle_venta"),
     path('home_medio_pago', home_medio_pago, name="home_medio_pago"),
     path('home_producto', home_producto, name="home_producto"),
     path('home_venta', home_venta, name="home_venta"),

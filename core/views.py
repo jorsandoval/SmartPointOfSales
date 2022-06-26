@@ -1,4 +1,6 @@
 from http import client
+from operator import truediv
+from pickle import TRUE
 from django.shortcuts import render
 from .models import Cliente, DetalleVenta, MedioPago, Producto, Venta
 from .forms import ClienteForm, VentaForm, ProductoForm, DetalleVentaForm, MedioPagoForm
@@ -15,8 +17,8 @@ def home_cliente(request):
     }
     return render(request, 'core/home_cliente.html',datos)
 
-def home_detalle_venta(request):
-    detalle_ventas = DetalleVenta.objects.all()
+def home_detalle_venta(request,id_venta):
+    detalle_ventas = DetalleVenta.objects.get(venta=id_venta)
     datos = {
         'detalle_ventas': detalle_ventas
     }

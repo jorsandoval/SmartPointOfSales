@@ -54,13 +54,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for det in detalle_venta %}
                     <tr>
-                        <td>{{det.id_detalle_venta}}</td>
-                        <td>{{det.producto}}</td>
-                        <td>-{{det.venta}}</td>
+                        <td>{{detalle_ventas.id_detalle_venta}}</td>
+                        <td>{{detalle_ventas.producto}}</td>
+                        <td>{{detalle_ventas.venta}}</td>
                     </tr>
-                    {% endfor %}
                 </tbody>
             </table>
         </div>

@@ -63,7 +63,7 @@
                         <td>{{vta.fecha}}</td>
                         <td>{{vta.cliente}}</td>
                         <td>{{vta.medioPago}}</td>
-                        <td><a href="{% url 'home_detalle_venta' %}">Detalle Venta</a></td>
+                        <td><a href="{% url 'home_detalle_venta' vta.id_venta%}">Detalle Venta</a></td>
                         <td><a href="{% url 'form_mod_venta' vta.id_venta %}">Modificar</a></td>
                     </tr>
                     {% endfor %}
