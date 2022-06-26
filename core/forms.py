@@ -23,3 +23,5 @@ class DetalleVentaForm(ModelForm):
     class Meta:
         model = DetalleVenta
         fields = ['id_detalle_venta','producto','venta']
+
+
