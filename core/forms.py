@@ -24,4 +24,9 @@ class DetalleVentaForm(ModelForm):
         model = DetalleVenta
         fields = ['id_detalle_venta','producto','venta']
 
+class MedioPagoForm(ModelForm):
+    class Meta:
+        model = MedioPago
+        fields = ['id_medio_pago','nombre']
+
 
