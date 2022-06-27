@@ -44,9 +44,11 @@
                 <div class="form-group">
                     {{ form.as_p }}
                 </div>
-                <input type="submit" class="btn btn-danger" id="enviar" value="Enviar">
-                <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-                <a href="{% url 'home_medio_pago' %}" class="btn btn-info" role="button">Volver</a>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-success" id="enviar" value="Guardar">
+                    <input type="reset" class="btn btn-secondary" id="limpiar" value="Limpiar">
+                    <a href="{% url 'home_medio_pago' %}" class="btn btn-info" role="button">Volver</a>
+                </div>
                 <div id="error" class="alert alert-danger" roles="alert"></div>
                 <div id="error" class="alert alert-success" roles="alert">{{mensaje}}</div>
             </form>
