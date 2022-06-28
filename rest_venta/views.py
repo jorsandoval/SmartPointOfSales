@@ -31,7 +31,7 @@ def lista_ventas(request):
 #Lista Detalle de las ventas
 @csrf_exempt
 @api_view(['GET','POST'])
-def lista_detalle_venta(request):
+def lista_detalle_ventas(request):
     """ 
     Lista todos los detalle de las ventas realizadas
     """
@@ -51,7 +51,7 @@ def lista_detalle_venta(request):
 #Lista el medio de pago
 @csrf_exempt
 @api_view(['GET','POST'])
-def lista_medio_pago(request):
+def lista_medio_pagos(request):
     """ 
     Lista todos los medios de pagos existetes
     """
