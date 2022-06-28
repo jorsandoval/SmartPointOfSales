@@ -28,4 +28,31 @@ def lista_clientes(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@csrf_exempt
+@api_view(['GET','PUT','DELETE'])
+def detalle_cliente(request,id_cliente):
+    """ 
+    Get, update o delete de un cliente en especifico.
+    Recibe el parametro <id_cliente>
+    """
+    try:
+        cliente = Cliente.objects.get(id_cliente=id_cliente)
+    except Cliente.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = ClienteSerializer(cliente)
+        return Response(serializer.data)
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = ClienteSerializer(cliente, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        cliente.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
 
