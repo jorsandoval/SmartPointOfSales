@@ -20,5 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('api/', include('Rest_SmartPointOfSales.urls')),
+    path('api_cliente/',include('rest_cliente.urls')),
+    path('api_productos/',include('rest_producto.urls')),
+    path('api_venta/',include('rest_venta.urls')),
 ]
 
