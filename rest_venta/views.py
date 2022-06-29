@@ -8,7 +8,7 @@ from core.models import Venta, DetalleVenta, MedioPago
 from .serializers import DetalleVentaSerializer, MedioPagoSerializer, VentaSerializer
 # Create your views here.
 
-#Lista Ventas
+#EndPoint de Ventas
 @csrf_exempt
 @api_view(['GET','POST'])
 def lista_ventas(request):
@@ -27,8 +27,12 @@ def lista_ventas(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+@api_view
+
         
-#Lista Detalle de las ventas
+#EndPoint de Detalle de las ventas
 @csrf_exempt
 @api_view(['GET','POST'])
 def lista_detalle_ventas(request):
@@ -48,7 +52,7 @@ def lista_detalle_ventas(request):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#Lista el medio de pago
+#EndPoint de medio de pago
 @csrf_exempt
 @api_view(['GET','POST'])
 def lista_medio_pagos(request):
