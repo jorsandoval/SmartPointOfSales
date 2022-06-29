@@ -27,3 +27,33 @@ def lista_productos(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@csrf_exempt
+@api_view(['GET','PUT','DELETe'])
+def detalle_producto(request,id_producto):
+    """ 
+    Get, update o delete de un producto en especifico.
+    Recibe el parametro <id_producto>
+    """
+    try:
+        producto = Producto.objects.get(id_producto=id_producto)
+    except Producto.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        serializer = ProductoSerializer(producto)
+        return Response(serializer.data)
+    if request.method == 'PUT':
+        data = JSONParser().parse(request)
+        serializer = ProductoSerializer(producto, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        producto.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
+    
+    
+    
