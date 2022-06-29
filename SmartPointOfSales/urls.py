@@ -20,8 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     #path('api/', include('Rest_SmartPointOfSales.urls')), endpoint eliminado
-    path('api_clientes/',include('rest_cliente.urls')),
-    path('api_productos/',include('rest_producto.urls')),
-    path('api_ventas/',include('rest_venta.urls')),
+    path('api/clientes/',include('rest_cliente.urls')),
+    path('api/productos/',include('rest_producto.urls')),
+    path('api/ventas/',include('rest_venta.urls')),
 ]
 
