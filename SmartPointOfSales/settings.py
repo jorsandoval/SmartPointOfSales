@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'SmartPointOfSales.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pos',
+        'NAME': 'pos_backend',
         'USER': 'jorsandoval',
         'PASSWORD': 'Duoc3MDY3131#',
         'HOST': 'localhost',
